@@ -1,0 +1,12 @@
+<div class="container">
+<button class="btn" ng-click="admin.add()">Add Product</button>
+  <ul class="list-group user-list">
+    <li class="list-group-item" ng-repeat="user in admin.products">
+	    <div class="user-info">
+	        <strong>{{user.name}}</strong><br>
+	        <span class="text-muted">{{user.email}}</span>
+	    </div>
+        <a class="btn btn-danger" ng-click="admin.delete(user)" class="trash"><span class="">Delete</span></a>
+    </li>
+  </ul>
+</div>

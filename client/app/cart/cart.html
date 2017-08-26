@@ -1,0 +1,83 @@
+
+<!-- 
+Body Section 
+-->
+	<div class="row">
+	<div class="span12">
+    <ul class="breadcrumb">
+		<li><a href="index.html">Home</a> <span class="divider">/</span></li>
+		<li class="active">Check Out</li>
+    </ul>
+	<div class="well well-small">
+		<h1>Check Out <small class="pull-right"> {{ $ctrl.cartService.products.length}} Items are in the cart </small></h1>
+	<hr class="soften"/>	
+
+	<table class="table table-bordered table-condensed">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Description</th>
+				  <th>	Ref. </th>
+                  <th>Avail.</th>
+                  <th>Unit price</th>
+                  <th>Qty </th>
+                  <th>Total</th>
+				</tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="product in $ctrl.cartService.products">
+                  <td><img width="100" ng-src="{{'assets/img/'+product.image }}" alt=""></td>
+                  <td>{{product.name}}<br>{{product.description}}</td>
+                  <td> - </td>
+                  <td><span class="shopBtn"><span class="icon-ok"></span></span> </td>
+                  <td>{{product.price}}</td>
+                  <td>
+                  	<input class="span1" style="max-width:34px" placeholder="1" id="appendedInputButtons" size="16" type="text" ng-model="product.quantity" positive-numbers-only>
+                  	<div class="input-append">
+                  		<button class="btn btn-mini" type="button" ng-click="$ctrl.cartService.subtractQuantity(product)">-</button><button class="btn btn-mini" type="button" ng-click="$ctrl.cartService.addQuantity(product)"> + </button><button class="btn btn-mini btn-danger" type="button" ng-click="$ctrl.cartService.removeProduct(product)"><span class="icon-remove"></span></button>
+                  	</div>
+                  </td>
+                  <td>{{product.price * product.quantity}}</td>
+				 <tr>
+                  <td colspan="6" class="alignR">Total:	</td>
+                  <td class="label label-primary"> {{$ctrl.cartService.products| findTotal:'totalPrice'| currency}}</td>
+                </tr>
+				</tbody>
+            </table><br/>
+		
+	<a ui-sref="main" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Continue Shopping </a>
+	<a class="btn shopBtn btn-large pull-right next-button" ng-click="$ctrl.checkout()">Checkout <span class="icon-arrow-right"></span></a>
+
+</div>
+</div>
+</div>
+<!-- 
+Clients 
+-->
+<section class="our_client">
+	<hr class="soften"/>
+	<h4 class="title cntr"><span class="text">Manufactures</span></h4>
+	<hr class="soften"/>
+	<div class="row">
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/1.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/2.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/3.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/4.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/5.png"></a>
+		</div>
+		<div class="span2">
+			<a href="#"><img alt="" src="assets/img/6.png"></a>
+		</div>
+	</div>
+</section>
+
+</div><!-- /container -->

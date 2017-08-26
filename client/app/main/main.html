@@ -1,0 +1,102 @@
+
+<!-- 
+Body Section 
+-->
+<div class="row">
+  <div id="sidebar" class="span3">
+
+    <div class="well well-small">
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includePrice('0,700')" ng-checked=""/> Rs 700 and Below
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includePrice('701,1500')" ng-checked=""/> Rs 701 - 1500
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includePrice('1501,3000')" ng-checked=""/> Rs 1501 - 3000
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includePrice('3001,5000')" ng-checked=""/> Rs 3000 - 5000
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includePrice('5001,100000000')" ng-checked=""/> Rs 5001 and Above
+      </div>
+    </div>
+
+
+    <div class="well well-small">
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includeCategory('fashion')" ng-checked=""/> Fashion
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includeCategory('laptops')" ng-checked=""/> Laptops
+      </div>
+      <div class="form-group">
+        <input type="checkbox" ng-click="$ctrl.includeCategory('mobiles')" ng-checked=""/> Mobiles
+      </div>
+    </div>
+
+     <div class="well well-small" ><a href="#"><img src="assets/img/paypal.jpg" alt="payment method paypal"></a></div>
+
+   </div>
+   <div class="span9">
+<!--
+New Products
+-->
+<div class="well well-small">
+  <h3 style="display: inline-block;">Our Products </h3>
+  <input type="text" placeholder="Search" class="search-query span2" ng-model="query['name']">
+  <div class="row-fluid" >
+    <ul class="thumbnails">
+      <li class="span4"  ng-repeat="product in $ctrl.products | filter:query | priceRange: $ctrl.priceIncludes : $ctrl.ranges| category: $ctrl.selectedCatgories" style="margin-left: 7px;">
+        <div class="thumbnail">
+          <a href="product_details.html" class="overlay"></a>
+          <a class="zoomTool" href="product_details.html" title="add to cart"><span class="icon-search"></span> QUICK VIEW</a>
+          <a href="product_details.html"><img ng-src="{{product.image?product.image:'assets/img/no_image.gif'}}" alt="" style="width: 207px;height: 267px;"></a>
+          <div class="caption cntr">
+            <p>{{product.name}}</p>
+            <p><strong> {{product.price}}</strong></p>
+            <p>Category: <strong> {{product.category}}</strong></p>
+            <h4><a class="shopBtn" href="#" ng-click="$ctrl.cartService.addProduct(product)" title="add to cart"> Add to cart </a></h4>
+            <!-- <div class="actionList">
+              <a class="pull-left" href="#">Add to Wish List </a> 
+              <a class="pull-left" href="#"> Add to Compare </a>
+            </div>  -->
+            <br class="clr">
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+</div>
+</div>
+</div>
+<!-- 
+Clients 
+-->
+<section class="our_client">
+  <hr class="soften"/>
+  <h4 class="title cntr"><span class="text">Manufactures</span></h4>
+  <hr class="soften"/>
+  <div class="row">
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/1.png"></a>
+    </div>
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/2.png"></a>
+    </div>
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/3.png"></a>
+    </div>
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/4.png"></a>
+    </div>
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/5.png"></a>
+    </div>
+    <div class="span2">
+      <a href="#"><img alt="" src="assets/img/6.png"></a>
+    </div>
+  </div>
+</section>

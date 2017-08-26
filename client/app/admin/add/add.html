@@ -1,0 +1,36 @@
+
+<!-- 
+Body Section 
+-->
+<div class="addProductPage container">
+  <div class="row">
+  <form name="addProductForm">
+    <div class="form-group">
+      <label for="">Category:</label>
+      <select ng-model="addProduct.product.category" ng-options="x for x in addProduct.categories"> </select>
+    </div>
+    <div class="form-group">
+      <label for="">Name:</label>
+      <input type="text" class="form-control" ng-model="addProduct.product.name" required="">
+    </div>
+    <div class="form-group">
+      <label for="">Price:</label>
+      <input type="number" class="form-control" ng-model="addProduct.product.price" required="">
+    </div>
+    <div class="form-group">
+      <label for="">Image url:</label>
+      <input type="url" class="form-control" ng-model="addProduct.product.image">
+    </div>
+    <div class="form-group">
+      <label for="">Description:</label>
+      <input type="text" class="form-control" ng-model="addProduct.product.description" required="">
+    </div>
+    <div class="form-group">
+    <span ng-show="!addProductForm.$valid&&!addProductForm.$pristine" style="color:red;">There are some errors on the form. Please fill all the fields.</span>
+    </div>
+    <div class="form-group">
+    <button type="submit" class="btn btn-prinary" ng-disabled="!addProductForm.$valid||addProductForm.$pristine" ng-click="addProduct.add()">Add product</button>
+    </div>
+  </form>
+  </div>
+</div>
